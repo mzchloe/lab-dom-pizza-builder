@@ -78,66 +78,22 @@ function renderGlutenFreeCrust() {
     : 'crust';
 }
 
-/* function renderButtons() {
-  // Iteration 3: add/remove the class "active" of each `<button class="btn">`
-  
-  //Pepper button 
-  
-
-  // Mushroom button
-  const btnMushroom = document.querySelector('.btn.btn-mushrooms');
-  if (state.mushrooms) {
-    btnMushroom.classList.add('active');
-  } else {
-    btnMushroom.classList.remove('active');
-  }
-
-  //Green pepper button
-  const btnGreenPepper = document.querySelector('.btn.btn-green-peppers');
-  if (state.greenPeppers) {
-    btnMushroom.classList.add('active');
-  } else { 
-    btnGreenPepper.classList.remove('active');
-  }
-
-  //White Sauce button
-  const btnWhiteSauce = document.querySelector('.btn-sauce');
-  if (state.whiteSauce){
-    btnWhiteSauce.classList.add('active');
-  } else {
-    btnWhiteSauce.classList.remove('active');
-  } 
-
-  //Gluten-free crust button 
-  const btnGlutenFree = document.querySelector('.btn.btn-crust');
-  if (state.glutenFreeCrust) {
-    btnGlutenFree.classList.add('active');
-  } else {
-    btnGlutenFree.classList.remove('active');
-  } 
-} */
 
 function renderPrice() {
   // Iteration 4: change the HTML of `<aside class="panel price">`
-  //1. identify which ingredients exist:
-  /* console.log('pepperoni', state.pepperoni)
-  console.log('mushrooms', state.mushrooms)
-  console.log('greenPepper', state.greenPeppers)
-  console.log('whiteSauce', state.whiteSauce)
-  console.log('GlutenFree', state.glutenFreeCrust) */
-
-  // 2. Print the existing ingredients in the price list 
-
-  //3. Accumulate the price (= total price) of the visible ingredients:
-    //debugger 
+  
+  //1. define the starting total price:
   let totalPrice = basePrice;
   
+  //2. identify which ingredients exist:
+ 
   let ingredientsList = document.querySelector('.panel.price > ul')
 
-    // delete the content inside panel price ul:
+    // 3. delete the content inside panel price ul:
    ingredientsList.innerHTML = '' 
   
-    //define the conditions
+   
+    //4. define the conditions, and accumulate the price (= total price) of the visible ingredients:
     if (state.pepperoni === true) {
     totalPrice += ingredients.pepperoni.price 
     ingredientsList.innerHTML += `<li> $${ingredients.pepperoni.price} Pepperoni </li>`
@@ -164,13 +120,12 @@ function renderPrice() {
     ingredientsList.innerHTML += `<li> $${ingredients.glutenFreeCrust.price} Gluten-free crust </li>`
     }
 
+  
   let totalPriceLine = document.querySelector('.panel.price > strong')
 
-  //4. Display the total price 
+  //5. Display the total price 
   totalPriceLine.innerHTML = `$${totalPrice}`
  
-  
-  //console.log('Total Price:', totalPrice)
 }
 
 renderEverything();
