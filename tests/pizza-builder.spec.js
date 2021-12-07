@@ -118,6 +118,7 @@ describe('Ironhack Pizza Builder', () => {
 
   describe('Price', () => {
     it('should render base price for pizza', async () => {
+      //await jestPuppeteer.debug()
       const $totalPrice = await page.$('.price > *:last-child');
       const value = await $totalPrice.evaluate((element) => element.innerText);
       const amount = extractAmountFromPrice(value);
